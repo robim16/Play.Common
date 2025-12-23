@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {}
+    "C:\\Users\\andre\\Play.Common\\src\\play.common\\Play.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\Play.Common.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\andre\\Play.Common\\src\\play.common\\Play.Common.csproj": {
+      "version": "1.0.2",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Play.Common\\src\\play.common\\Play.Common.csproj",
         "projectName": "Play.Common",
-        "projectPath": "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
+        "projectPath": "C:\\Users\\andre\\Play.Common\\src\\play.common\\Play.Common.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\obj\\",
+        "outputPath": "C:\\Users\\andre\\Play.Common\\src\\play.common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
