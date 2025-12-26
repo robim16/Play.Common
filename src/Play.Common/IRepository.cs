@@ -15,5 +15,6 @@ namespace Play.Common
         Task<T> GetAsync(Expression<Func<T, bool>> filter);
         Task RemoveAsync(Guid id);
         Task UpdateAsync(T entity);
+        //se usa el patron repositorio para abstraer la logica de acceso a datos
     }
 }

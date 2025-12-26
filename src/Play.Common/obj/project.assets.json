@@ -2143,13 +2143,13 @@
     "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.2",
+    "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\Play.Common\\src\\play.common\\Play.Common.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
       "projectName": "Play.Common",
-      "projectPath": "C:\\Users\\andre\\Play.Common\\src\\play.common\\Play.Common.csproj",
+      "projectPath": "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\Play.Common.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\Play.Common\\src\\play.common\\obj\\",
+      "outputPath": "C:\\Users\\andre\\Play.Common\\src\\Play.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
