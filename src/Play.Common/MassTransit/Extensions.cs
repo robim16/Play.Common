@@ -13,23 +13,32 @@ namespace Play.Common.MassTransit
         {
             services.AddMassTransit(configure =>
             {
-                    configure.AddConsumers(Assembly.GetEntryAssembly());
+                // Se registran todos los consumidores de mensajes en el ensamblado de entrada
+                configure.AddConsumers(Assembly.GetEntryAssembly());
 
-                    configure.UsingRabbitMq((context, configurator) =>
+                configure.UsingRabbitMq((context, configurator) =>
+                {
+                    // Se obtiene la configuración del contexto de servicios
+                    var configuration = context.GetRequiredService<IConfiguration>();
+
+                    var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
+                    var rabbitMQSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+
+                    configurator.Host(rabbitMQSettings.Host);
+
+                    // Se configuran los endpoints usando el nombre del servicio en formato kebab-case
+                    configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
+
+                    configurator.UseMessageRetry(retryConfigurator =>
                     {
-                        var configuration = context.GetService<IConfiguration>();
-                        var serviceSettings = configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-                        var rabbitMQSettings = configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
-                        configurator.Host(rabbitMQSettings.Host);
-                        configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
-                        configurator.UseMessageRetry(retryConfigurator =>
-                        {
-                            retryConfigurator.Interval(3, TimeSpan.FromSeconds(5));
-                        });
+                        // Configura 3 reintentos con un intervalo de 5 segundos
+                        retryConfigurator.Interval(3, TimeSpan.FromSeconds(5));
                     });
+                });
             });
 
-            services.AddMassTransitHostedService();
+            // services.AddMassTransitHostedService(); 
+
             return services;
         }
     }

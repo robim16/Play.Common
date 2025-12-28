@@ -15,7 +15,7 @@ namespace Play.Common.MongoDB
         {
             BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
             BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
-
+            //se registran los serializadores para que MongoDB pueda manejar Guid y DateTimeOffset como strings
 
             services.AddSingleton(serviceProvider =>
             {
@@ -24,6 +24,7 @@ namespace Play.Common.MongoDB
                 var mongoDbSettings = configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
                 var mongoClient = new MongoClient(mongoDbSettings.ConnectionString);
                 return mongoClient.GetDatabase(serviceSettings.ServiceName);
+                //se obtiene la base de datos de MongoDB usando el nombre del servicio como nombre de la base de datos
             });
 
             return services;
@@ -36,6 +37,7 @@ namespace Play.Common.MongoDB
             {
                 var database = ServiceProvider.GetService<IMongoDatabase>();
                 return new MongoRepository<T>(database, collectionName);
+                //se registra el repositorio genérico de MongoDB para la entidad T
             });
 
             return services;
